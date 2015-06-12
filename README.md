@@ -8,15 +8,21 @@ The purpose is to allow legacy applications using the `mysql` extension
 to function adequately in PHP 7.0 and beyond,
 where the `mysql` extension will not be available.
 
+### Compatibility
+
 All functions are designed to behave as similarly as possible
 to the way the original `mysql` extension does.
 There may be minor differences, however, in unusual cases.
 Please report any discrepancy that you find.
 
-You can also access all advanced `mysqli` features,
-such as transactions and prepared statements,
-by calling the corresponding methods directly on the connection object
-(which is an instance of the `mysqli` class).
+The only difference that cannot be fixed is that
+the `mysqli` connection is an object, not a resource.
+So if you use `is_resource($var)` to test whether a connection is active,
+you should change it to `is_object($var)` or `$var instanceof mysqli`.
+
+Access all advanced `mysqli` features,
+such as transactions and prepared statements, can be accessed
+by calling the corresponding methods directly on the connection object.
 
 ### Disclaimer
 
