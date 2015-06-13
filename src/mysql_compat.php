@@ -152,6 +152,14 @@ function mysql_db_query($database_name, $query, $conn = null)
 }
 
 /**
+ * Deprecated alias to mysql_db_name().
+ */
+function mysql_dbname(mysqli_result $result, $row, $field = null)
+{
+    return mysql_db_name($result, $row, $field);
+}
+
+/**
  * Drop (delete) a MySQL database.
  */
 function mysql_drop_db($database_name, $conn = null)
@@ -315,11 +323,67 @@ function mysql_field_type(mysqli_result $result, $field_offset = 0)
 }
 
 /**
+ * Deprecated alias to mysql_field_flags().
+ */
+function mysql_fieldflags(mysqli_result $result, $field_offset = 0)
+{
+    return mysql_field_flags($result, $field_offset);
+}
+
+/**
+ * Deprecated alias to mysql_field_len().
+ */
+function mysql_fieldlen(mysqli_result $result, $field_offset = 0)
+{
+    return mysql_field_len($result, $field_offset);
+}
+
+/**
+ * Deprecated alias to mysql_field_name().
+ */
+function mysql_fieldname(mysqli_result $result, $field_offset = 0)
+{
+    return mysql_field_name($result, $field_offset);
+}
+
+/**
+ * Deprecated alias to mysql_field_seek().
+ */
+function mysql_fieldseek(mysqli_result $result, $field_offset = 0)
+{
+    return mysql_field_seek($result, $field_offset);
+}
+
+/**
+ * Deprecated alias to mysql_field_table().
+ */
+function mysql_fieldtable(mysqli_result $result, $field_offset = 0)
+{
+    return mysql_field_table($result, $field_offset);
+}
+
+/**
+ * Deprecated alias to mysql_field_type().
+ */
+function mysql_fieldtype(mysqli_result $result, $field_offset = 0)
+{
+    return mysql_field_type($result, $field_offset);
+}
+
+/**
  * Free result memory.
  */
 function mysql_free_result(mysqli_result $result)
 {
     return $result->free();
+}
+
+/**
+ * Deprecated alias to mysql_free_result().
+ */
+function mysql_freeresult(mysqli_result $result)
+{
+    return mysql_free_result($result);
 }
 
 /**
@@ -413,6 +477,30 @@ function mysql_list_tables($database_name, $conn = null)
 }
 
 /**
+ * Deprecated alias to mysql_list_dbs().
+ */
+function mysql_listdbs($conn = null)
+{
+    return mysql_list_dbs($conn);
+}
+
+/**
+ * Deprecated alias to mysql_list_fields().
+ */
+function mysql_listfields($database_name, $table_name, $conn = null)
+{
+    return mysql_list_fields($database_name, $field_name, $conn);
+}
+
+/**
+ * Deprecated alias to mysql_list_tables().
+ */
+function mysql_listtables($database_name, $conn = null)
+{
+    return mysql_list_tables($database_name, $conn);
+}
+
+/**
  * Get number of fields in result.
  */
 function mysql_num_fields(mysqli_result $result)
@@ -426,6 +514,22 @@ function mysql_num_fields(mysqli_result $result)
 function mysql_num_rows(mysqli_result $result)
 {
     return $result->num_rows;
+}
+
+/**
+ * Deprecated alias to mysql_num_fields().
+ */
+function mysql_numfields(mysqli_result $result)
+{
+    return mysql_num_fields($result);
+}
+
+/**
+ * Deprecated alias to mysql_num_rows().
+ */
+function mysql_numrows(mysqli_result $result)
+{
+    return mysql_num_rows($result);
 }
 
 /**
@@ -483,6 +587,14 @@ function mysql_select_db($database_name, $conn = null)
 }
 
 /**
+ * Deprecated alias to mysql_select_db().
+ */
+function mysql_selectdb($database_name, $conn = null)
+{
+    return mysql_select_db($database_name, $conn);
+}
+
+/**
  * Set the client character set.
  */
 function mysql_set_charset($charset, $conn = null)
@@ -516,6 +628,14 @@ function mysql_tablename(mysqli_result $result, $index = 0)
     {
         return false;
     }
+}
+
+/**
+ * Deprecated alias to mysql_tablename().
+ */
+function mysql_table_name(mysqli_result $result, $index = 0)
+{
+    return mysql_tablename($result, $index);
 }
 
 /**
