@@ -42,18 +42,19 @@ if (!defined('MYSQL_NUM')) define('MYSQL_NUM', MYSQLI_NUM);
 if (!defined('MYSQL_BOTH')) define('MYSQL_BOTH', MYSQLI_BOTH);
 
 /**
- * Change the error reporting level to be similar to the MySQL extension.
- */
-$driver = new mysqli_driver();
-$driver->report_mode = MYSQLI_REPORT_ERROR;
-
-/**
  * This class maintains a record of the last instance of MySQL connection.
  * It is used in all functions where the connection argument is optional.
  */
 class MySQL_Compat extends mysqli
 {
+    protected static $_mysqli_driver = null;
     protected static $_last_instance = null;
+    
+    public static function initializeDriver()
+    {
+        self::$_mysqli_driver = new mysqli_driver();
+        self::$_mysqli_driver->report_mode = MYSQLI_REPORT_ERROR;
+    }
     
     public static function getLastInstance()
     {
@@ -65,6 +66,11 @@ class MySQL_Compat extends mysqli
         self::$_last_instance = $conn;
     }
 }
+
+/**
+ * Change the error reporting level to be similar to the MySQL extension.
+ */
+MySQL_Compat::initializeDriver();
 
 /**
  * Get the number of rows affected by the previous MySQL operation.
