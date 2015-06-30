@@ -29,50 +29,6 @@
  */
 
 /**
- * Do not load if MySQL is enabled or MySQLi is missing.
- */
-if (function_exists('mysql_connect')) return false;
-if (!class_exists('mysqli')) return false;
-
-/**
- * Define some constants.
- */
-if (!defined('MYSQL_ASSOC')) define('MYSQL_ASSOC', MYSQLI_ASSOC);
-if (!defined('MYSQL_NUM')) define('MYSQL_NUM', MYSQLI_NUM);
-if (!defined('MYSQL_BOTH')) define('MYSQL_BOTH', MYSQLI_BOTH);
-
-/**
- * This class maintains a record of the last instance of MySQL connection.
- * It is used in all functions where the connection argument is optional.
- */
-class MySQL_Compat extends mysqli
-{
-    protected static $_mysqli_driver = null;
-    protected static $_last_instance = null;
-    
-    public static function initializeDriver()
-    {
-        self::$_mysqli_driver = new mysqli_driver();
-        self::$_mysqli_driver->report_mode = MYSQLI_REPORT_ERROR;
-    }
-    
-    public static function getLastInstance()
-    {
-        return self::$_last_instance ?: mysql_connect();
-    }
-    
-    public static function setLastInstance(mysqli $conn)
-    {
-        self::$_last_instance = $conn;
-    }
-}
-
-/**
- * Change the error reporting level to be similar to the MySQL extension.
- */
-MySQL_Compat::initializeDriver();
-
-/**
  * Get the number of rows affected by the previous MySQL operation.
  */
 function mysql_affected_rows($conn = null)
