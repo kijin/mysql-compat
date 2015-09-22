@@ -3,7 +3,7 @@
     "description": "A MySQL extension emulation layer using MySQLi",
     "type": "library",
     "keywords": ["mysql", "mysqli"],
-    "homepage": "https://github.com/kijin/mysql_compat",
+    "homepage": "https://github.com/kijin/mysql-compat",
     "license": "MIT",
     "authors": [
         {
@@ -21,6 +21,6 @@
         "ext-mysql": "*"
     },
     "autoload": {
-        "files": ["src/mysql_compat.php"]
+        "files": ["src/include.php"]
     }
 }
