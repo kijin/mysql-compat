@@ -37,9 +37,9 @@ if (!class_exists('mysqli')) return false;
 /**
  * Load all classes, constants, and functions.
  */
-require 'classes.php';
-require 'constants.php';
-require 'functions.php';
+require_once __DIR__ . '/classes.php';
+require_once __DIR__ . '/constants.php';
+require_once __DIR__ . '/functions.php';
 
 /**
  * Change the error reporting level to be similar to the MySQL extension.
